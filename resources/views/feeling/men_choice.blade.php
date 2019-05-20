@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body class="p-3">
-    <h1>女性登録</h1>
+  {{ $men_list->name }}さん
  
-    <form method="post" action="/women_create">
+    <form method="post" action="/men_choice">
       {{ csrf_field() }}
+      <input type="hidden" class="form-control" name="id" value="{{ $men_list->id }}">
       <div class="form-group">
-        <label for="titleInput">名前</label>
-        <input type="text" class="form-control" id="titleInput" name="name">
+        <label for="titleInput">気になる方を選んでください</label>
+        <!-- {{ Form::select('women_id', $women_lists, null, ['class' => 'form', 'id' => 'women_id']) }} -->
+        <p>{{ Form::select('women_id', $women_lists, null) }}</p>
+        <!-- <input type="radio" class="form-control" name="women_id" name="name" value="{{ $men_list->name }}"> -->
       </div>
-      <button type="submit" class="btn btn-primary">新規追加</button>
+      <button type="submit" class="btn btn-primary">選択する</button>
     </form>
  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

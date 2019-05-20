@@ -58,3 +58,37 @@ Route::get('men_delete/{id}', 'EntranceController@men_show');
 Route::post('men_delete', 'EntranceController@men_delete');
 Route::get('women_delete/{id}', 'EntranceController@women_show');
 Route::post('women_delete', 'EntranceController@women_delete');
+
+
+#スタートを押す
+Route::get('feeling_start', 'EntranceController@feeling_start');
+
+#
+// Route::get('men_create_feeling', 'EntranceController@men_feeling_update');
+
+#男性確認
+Route::get('men_correct/{id}', 'EntranceController@men_correct');
+
+// Route::post('men_create_feeling', 'EntranceController@men_feeling_update');
+
+#男性選択画面
+Route::get('men_choice/{id}', 'EntranceController@men_choice');
+Route::post('men_choice', 'EntranceController@men_feeling_update');
+
+#女性確認
+Route::get('women_correct/{id}', 'EntranceController@women_correct');
+#女性選択画面
+Route::get('women_choice/{id}', 'EntranceController@women_choice');
+Route::post('women_choice', 'EntranceController@women_feeling_update');
+
+#結果確認前
+Route::get('result_check', 'EntranceController@result_check');
+
+#結果確認
+Route::get('result', 'EntranceController@result');
+
+#結果発表詳細
+Route::get('result_details', 'EntranceController@result_details');
+
+// Route::get('men_edit/{id}', 'EntranceController@men_edit');
+// Route::post('men_edit', 'EntranceController@men_feeling_update');

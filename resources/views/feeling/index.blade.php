@@ -15,8 +15,6 @@
     <div class="card mb-2">
       <div class="card-body">
         <h6 class="card-title">{{ $men_list->name }}</h6>
-        <!-- <h6 class="card-subtitle mb-2 text-muted">{{ $men_list->updated_at }}</h6> -->
-        <!-- <p class="card-text">{{ $men_list->body }}</p&gt -->
         <a href="/men_edit/{{ $men_list->id }}" class="card-link">修正</a>
         <a href="/men_delete/{{ $men_list->id }}" class="card-link">削除</a>
       </div>
@@ -30,13 +28,13 @@
     <div class="card mb-2">
       <div class="card-body">
         <h6 class="card-title">{{ $women_list->name }}</h6>
-        <!-- <h6 class="card-subtitle mb-2 text-muted">{{ $men_list->updated_at }}</h6> -->
-        <!-- <p class="card-text">{{ $men_list->body }}</p&gt -->
         <a href="/women_edit/{{ $women_list->id }}" class="card-link">修正</a>
         <a href="/women_delete/{{ $women_list->id }}" class="card-link">削除</a>
       </div>
     </div>
     @endforeach
+
+    <p><a href="/feeling_start" class="btn btn-primary">スタート</a></p>
  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

@@ -15,10 +15,6 @@
         <label for="titleInput">名前</label>
         <input type="text" class="form-control" id="titleInput" name="name">
       </div>
-      <!-- <div class="form-group">
-        <label for="bodyInput">内容</label>
-        <textarea class="form-control" id="bodyInput" rows="3" name="body"></textarea>
-      </div> -->
       <button type="submit" class="btn btn-primary">新規追加</button>
     </form>
  
