@@ -1,20 +1,24 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <title>Laravelチュートリアル</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
+<center>
+  @extends('layouts.layout')
   <body class="p-3">
-  <h2>結果発表</h2>
-    
+  <h1>結果発表</h1>
+  <br>
   @foreach ($feeling_success as $user)
-    <p>【{{ $user['men'] }}さん / {{ $user['men'] }}さん】</p>
-
+    <div class="text-white alert alert-danger mb-2" style="max-width: 30rem;">
+      <div class="card-body">
+        <h4>
+          <span class="text-danger">{{ $user['men'] }} </span>さん &
+          <span class="text-info">{{ $user['women'] }}</span>さん
+        </h4>
+      </div> 
+    </div>
   @endforeach
-  <p>おめでとうございます！</p>
-  <p><a href="/list" class="btn btn-primary">TOPに戻る</a></p>
+  <br>
+  <h4 class="text-secondary"> おめでとうございます！</h4>
+  <br>
+  <p><a href="/list" class="btn btn-primary btn-lg">TOPに戻る</a></p>
 
  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

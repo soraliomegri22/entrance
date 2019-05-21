@@ -1,15 +1,13 @@
+<!doctype html>
 <html lang="ja">
-  <head>
-    <title>Laravelチュートリアル</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-  <body class="p-3">
+<center>
+    @extends('layouts.layout')
+    <body class="p-3">
+    @section('content')
     <h1>登録完了</h1>
  
     <div class="alert alert-primary" role="alert">
-      新規追加しました。
+      新規追加しました
       <a href="/list" class="btn btn-primary">一覧に戻る</a>
     </div>
  

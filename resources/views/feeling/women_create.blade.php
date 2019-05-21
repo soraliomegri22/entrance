@@ -1,21 +1,17 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <title>Laravelチュートリアル</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
+  @extends('layouts.layout')
   <body class="p-3">
+  @section('content')
+  <center>
     <h1>女性登録</h1>
- 
     <form method="post" action="/women_create">
       {{ csrf_field() }}
       <div class="form-group">
-        <label for="titleInput">名前</label>
-        <input type="text" class="form-control" id="titleInput" name="name">
+        <label for="titleInput"><h3>お名前</h3></label>
+        <input type="text" class="form-control" id="titleInput" name="name" style="max-width: 30rem;">
       </div>
-      <button type="submit" class="btn btn-primary">新規追加</button>
+      <button type="submit" class="btn btn-primary btn-lg">新規追加</button>
     </form>
  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

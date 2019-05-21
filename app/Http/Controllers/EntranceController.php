@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 use App\Men;
 use App\Women;
 
-// $a = new EntranceController();
-// $a->men_list_array = array(0 => '0');
-
 class EntranceController extends Controller
 {
 
@@ -100,10 +97,6 @@ class EntranceController extends Controller
         $men_all_list = Men::all();
         $women_all_list = Women::all();
         
-        #男性の最初のID
-        // $men_first = Men::first()->value('id');
-        // print($men_first);
-
         #feeling相手リセット
         foreach($men_all_list as $men) {
             $men->women_id = 0;
@@ -114,8 +107,6 @@ class EntranceController extends Controller
             $women->save();
         }
         
-        
-        // return view('feeling.feeling_start', ['men_all_list' => $men_all_list, 'women_all_list' => $women_all_list ,'men_first' => $men_first, ]);
         return view('feeling.feeling_start', ['men_all_list' => $men_all_list, 'women_all_list' => $women_all_list]);
 
     }
@@ -155,7 +146,6 @@ class EntranceController extends Controller
         }
     }
 
- #保存
     public function men_choice_check(Request $request) {
         $article = Women::find($request->id);
         $article->name = $request->name;
@@ -165,8 +155,6 @@ class EntranceController extends Controller
         return view('feeling.update');
     }
 
-
-
     public function women_correct(Request $request, $id) {
 
         $item = Women::where('men_id', '=', 0)->first();
@@ -174,14 +162,13 @@ class EntranceController extends Controller
         $women_list = Women::find($id);
         return view('feeling.women_correct', ['women_list' => $women_list]);
     }
-#女性選択画面
+
     public function women_choice(Request $request, $id){
         $women_list = Women::find($id);
         $men_lists = Men::all()->pluck('name','id');
         return view('feeling.women_choice', ['women_list' => $women_list, 'men_lists' => $men_lists]);
-        }
+    }
         
-#更新処理
     public function women_feeling_update(Request $request) {
         $article = Women::find($request->id);
         $article->men_id = $request->men_id;
@@ -192,8 +179,6 @@ class EntranceController extends Controller
         #次の確認
         $women_next = Women::where('men_id', '=', 0)->value('id');
 
-        print($women_next);
-
         if (is_null($women_next)){
             return view('feeling.men_choice_check', ['feeling_women' => $feeling_men, 'next' => "result_check"]);
         }else{
@@ -202,8 +187,12 @@ class EntranceController extends Controller
     }
 
     public function result_check(Request $request) {
-        #お互いに選んでいる人がいたらそのデータを渡す
-        #いなかったら「残念でした」を渡す
+
+        return view('feeling.result_check');
+    }   
+
+    public function result(Request $request) {
+        
         $feeling_success = [];
         $men_lists = Men::all();
         $women_lists = Women::all();
