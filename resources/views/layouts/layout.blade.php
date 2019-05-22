@@ -19,6 +19,22 @@
                 text-align: center;
                 line-height: 100px;
             }
+            .errors {
+                width: 300px;
+                font-size: 20px;
+                /* color: #e95353;
+                border: 10px solid #e95353;
+                background-color: #f2dede; */
+            }
+            .complete {
+                padding-left: 10px;
+                width: 290px;
+                font-size: 12px;
+                color: #2a88bd;
+                border: 1px solid #2a88bd;
+                background-color: #a6e1ec;
+            }
+
     </style>
   
   </head>

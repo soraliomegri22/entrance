@@ -16,7 +16,7 @@
         {{ csrf_field() }}
         <div class="form-group form-group-lg"></div>
           <input type="hidden" class="form-control form-control-lg" name="id" value="{{ $men_list->id }}">
-          <p>{{ Form::select('women_id', $women_lists, "null") }}</p>
+          <p>{{ Form::select('women_id', $women_lists, null, ['class' => "form-control form-control-lg", 'style' => "max-width: 10rem;"]) }}</p>
         </div>
         <button type="submit" class="btn btn-primary btn-lg">選択する</button>
     </form>

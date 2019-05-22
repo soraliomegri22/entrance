@@ -9,6 +9,15 @@
       {{ csrf_field() }}
       <div class="form-group">
         <label for="titleInput"><h3>お名前</h3></label>
+        @if ($errors->any())
+        <div class="errors">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <input type="text" class="form-control" id="titleInput" name="name" style="max-width: 30rem;">
       </div>
       <button type="submit" class="btn btn-primary btn-lg">新規追加</button>

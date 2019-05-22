@@ -4,6 +4,16 @@
 <center>
   <body class="p-3">
 @section('content')
+@if ($errors->any())
+  <div>
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  <br>
+@endif
     <h1>登録完了</h1>
     <br>
     <h4 class="text-secondary">新規登録しました</h4>

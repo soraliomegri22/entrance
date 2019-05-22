@@ -6,11 +6,20 @@
     @section('content')
   <body class="p-3">
     <h1>男性登録</h1>
- 
+  
     <form method="post" action="/men_create">
       {{ csrf_field() }}
       <div class="form-group form-group-lg">
         <label for="titleInput"><h3>お名前</h3></label>
+        @if ($errors->any())
+        <div class="errors">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
         <input type="text" class="form-control" id="titleInput" name="name" style="max-width: 30rem;">
       </div>
       <button type="submit" class="btn btn-primary">新規追加</button>

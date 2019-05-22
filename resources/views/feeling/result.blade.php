@@ -8,7 +8,8 @@
   <h2>結果発表</h2>
     
     @if (count($feeling_success) === 0)
-        残念ながらフィーリングに失敗しました
+        <br>
+        <h4> 残念ながらフィーリングに失敗しました</h4> 
         <p><a href="/list" class="btn btn-primary btn-lg">TOPに戻る</a></p>
 
     @else

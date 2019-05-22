@@ -26,14 +26,20 @@ class EntranceController extends Controller
     }
 
     public function men_store(Request $request) {
+        $request->validate([
+            'name' => 'required|max:30',
+           ]);
         $men = new Men;
         $men->name = $request->name;
         $men->save();
     
-        return view('feeling.store');
+        return view('feeling.store',['status' => true]);
     }
 
     public function women_store(Request $request) {
+        $request->validate([
+            'name' => 'required|max:30',
+           ]);
         $women = new Women;
         $women->name = $request->name;
         $women->save();
@@ -94,8 +100,8 @@ class EntranceController extends Controller
     function feeling_start(Request $request) {
 
         #一覧用データ
-        $men_all_list = Men::all();
-        $women_all_list = Women::all();
+        $men_all_list = Men::where('id', '!=', 1)->get();
+        $women_all_list = Women::where('id', '!=', 1)->get();
         
         #feeling相手リセット
         foreach($men_all_list as $men) {
@@ -106,6 +112,14 @@ class EntranceController extends Controller
             $women->men_id = 0;
             $women->save();
         }
+
+        // Men::where('id', 1)->women_id = 2;
+        // Woen::where('id', 1)->men_id = 2;
+
+
+
+        // $men_first_id = Men::where('id', '!=', 1)->select('id')->first()->id;
+        // print($men_first_id);
         
         return view('feeling.feeling_start', ['men_all_list' => $men_all_list, 'women_all_list' => $women_all_list]);
 
@@ -129,6 +143,7 @@ class EntranceController extends Controller
 
 #更新処理
     public function men_feeling_update(Request $request) {
+        
         $article = Men::find($request->id);
         $article->women_id = $request->women_id;
         $article->save();
@@ -137,12 +152,13 @@ class EntranceController extends Controller
         #次の確認
         $men_next = Men::where('women_id', '=', 0)->value('id');
 
-        $women_first = Women::first()->value('id');
+        $women_first = Women::where('id', '>', 2)->first();
+        // $women_first = Women::first()->value('id');
 
         if (is_null($men_next)){
-            return view('feeling.men_choice_check', ['feeling_women' => $feeling_women, 'next' => "women_correct/".$women_first]);
+            return view('feeling.men_choice_check', ['status' => true, 'feeling_women' => $feeling_women, 'next' => "women_correct/".$women_first->id]);
           }else{
-            return view('feeling.men_choice_check', ['feeling_women' => $feeling_women, 'next' => "men_correct/".$men_next]);
+            return view('feeling.men_choice_check', ['status' => true, 'feeling_women' => $feeling_women, 'next' => "men_correct/".$men_next]);
         }
     }
 
@@ -177,7 +193,7 @@ class EntranceController extends Controller
         $feeling_men = Men::find($request->men_id);
 
         #次の確認
-        $women_next = Women::where('men_id', '=', 0)->value('id');
+        $women_next = Women::where('men_id', '=', 0)->where('id', '!=', 1)->value('id');
 
         if (is_null($women_next)){
             return view('feeling.men_choice_check', ['feeling_women' => $feeling_men, 'next' => "result_check"]);
@@ -192,11 +208,12 @@ class EntranceController extends Controller
     }   
 
     public function result(Request $request) {
-        
-        $feeling_success = [];
-        $men_lists = Men::all();
-        $women_lists = Women::all();
 
+        $feeling_success = [];
+        $men_lists = Men::where('id', '!=', 1)->get();
+        $women_lists = Women::where('id', '!=', 1)->get();
+
+        #id=1 と Aさんの1をOKにする
         foreach($men_lists as $men) {
             $feeling_women = Women::find($men->women_id);
             
@@ -211,8 +228,8 @@ class EntranceController extends Controller
     public function result_details(Request $request) {
 
         $feeling_success = [];
-        $men_lists = Men::all();
-        $women_lists = Women::all();
+        $men_lists = Men::where('id', '!=', 1)->get();
+        $women_lists = Women::where('id', '!=', 1)->get();
 
         foreach($men_lists as $men) {
             $feeling_women = Women::find($men->women_id);
