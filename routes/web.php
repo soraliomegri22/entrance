@@ -63,15 +63,11 @@ Route::post('women_delete', 'EntranceController@women_delete');
 #スタートを押す
 Route::get('feeling_start', 'EntranceController@feeling_start');
 
-#
-// Route::get('men_create_feeling', 'EntranceController@men_feeling_update');
-
-#男性確認
+####男性スタート#####
+#男性の名前確認
 Route::get('men_correct/{id}', 'EntranceController@men_correct');
 
-// Route::post('men_create_feeling', 'EntranceController@men_feeling_update');
-
-#男性選択画面
+#誰が気になるか３人選ぶ
 Route::get('men_choice/{id}', 'EntranceController@men_choice');
 Route::post('men_choice', 'EntranceController@men_feeling_update');
 
@@ -89,6 +85,10 @@ Route::get('result', 'EntranceController@result');
 
 #結果発表詳細
 Route::get('result_details', 'EntranceController@result_details');
+
+Route::get('test', 'TestController@test');
+Route::get('aaa', 'TestController@aaa');
+
 
 // Route::get('men_edit/{id}', 'EntranceController@men_edit');
 // Route::post('men_edit', 'EntranceController@men_feeling_update');

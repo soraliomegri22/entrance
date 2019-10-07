@@ -8,8 +8,7 @@
             html, body {
                 background-color: #fff;
 								background-image: url('/image/free-pattern-tileable-wood.jpg');
-								/* color: #fff; */
-                font-family: 'Raleway', sans-serif;
+                font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
                 font-weight: 500;
                 margin: 0;
             }

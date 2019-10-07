@@ -6,15 +6,14 @@
   <center>
   <body class="p-3">
   <h2>結果発表</h2>
-    
-    @if (count($feeling_success) === 0)
+    @if (count($love) === 0)
         <br>
         <h4> 残念ながらフィーリングに失敗しました</h4> 
         <p><a href="/list" class="btn btn-primary btn-lg">TOPに戻る</a></p>
 
     @else
         <br>
-        <h3> {{ count($feeling_success) }}組のフィーリングが成功しました</h3> 
+        <h3> {{ count($love) }}組のフィーリングが成功しました</h3> 
         <br>
         <p><a href="/result_details" class="btn btn-primary btn-lg">詳細を見る</a></p>
     @endif

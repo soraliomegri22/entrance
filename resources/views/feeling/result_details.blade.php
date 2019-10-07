@@ -9,8 +9,8 @@
     <div class="text-white alert alert-danger mb-2" style="max-width: 30rem;">
       <div class="card-body">
         <h4>
-          <span class="text-danger">{{ $user['men'] }} </span>さん &
-          <span class="text-info">{{ $user['women'] }}</span>さん
+          <span class="text-danger">{{ $user->men_name }} </span>さん &
+          <span class="text-info">{{ $user->women_name }}</span>さん
         </h4>
       </div> 
     </div>

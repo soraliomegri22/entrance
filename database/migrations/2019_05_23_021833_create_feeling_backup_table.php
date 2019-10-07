@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenTable extends Migration
+class CreateFeelingBackupTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateMenTable extends Migration
      */
     public function up()
     {
-        Schema::create('men', function (Blueprint $table) {
+        Schema::create('feeling_backup', function (Blueprint $table) {
             $table->increments('id')->comment('ID');
-            $table->string('name', 20)->comment('名前')->nullable();
-            $table->integer('women_id')->unsigned();
-            $table->integer('women_id_1')->unsigned();
-            $table->integer('women_id_2')->unsigned();
-            $table->integer('women_id_3')->unsigned();
-            $table->boolean('love')->default(false);
+            $table->integer('men_id')->comment('男性ID')->nullable();
+            $table->string('men_name', 20)->comment('男性名前')->nullable();
+            $table->integer('women_id')->comment('女性ID')->nullable();
+            $table->string('women_name', 20)->comment('女性名前')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('登録日時');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('更新日時');
         });
@@ -33,6 +31,6 @@ class CreateMenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('men');
+        Schema::dropIfExists('feeling_backup');
     }
 }
