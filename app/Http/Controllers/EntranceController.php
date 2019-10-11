@@ -272,12 +272,11 @@ class EntranceController extends Controller
                 $target_man = Men::find($women->men_id_1);
                 if ($target_man->love === 0 && $target_man->women_id_1 === $women->id) {
                     print('フィーリング確認');
-                    //todo count を変更する
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
@@ -291,11 +290,11 @@ class EntranceController extends Controller
             if (!$women->love) {
                 $target_man = Men::find($women->men_id_1);
                 if ($target_man->love === 0 && $target_man->women_id_2 === $women->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
@@ -308,12 +307,11 @@ class EntranceController extends Controller
             if (!$men->love) {
                 $target_woman = Women::find($men->women_id_1);
                 if ($target_woman->love === 0 && $target_woman->men_id_2 === $men->id) {
-//                    self::$love[] = ['men' => $men->name, 'women' => $target_woman->name];
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $men->name,
-                        'women_name' => $target_woman->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->women_name = $target_woman->name;
+                    $love->men_name = $men->name;
+                    $love->save();
                     $target_woman->love = true;
                     $target_woman->save();
                     $men->love = true;
@@ -326,12 +324,11 @@ class EntranceController extends Controller
             if (!$men->love) {
                 $target_woman = Women::find($men->women_id_1);
                 if ($target_woman->love === 0 && $target_woman->women_id_3 === $men->id) {
-//                    $this->love = ['men' => $men->name, 'women' => $target_woman->name];
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $men->name,
-                        'women_name' => $target_woman->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->women_name = $target_woman->name;
+                    $love->men_name = $men->name;
+                    $love->save();
                     $target_woman->love = true;
                     $target_woman->save();
                     $men->love = true;
@@ -344,11 +341,11 @@ class EntranceController extends Controller
             if (!$women->love) {
                 $target_man = Men::find($women->men_id_1);
                 if ($target_man->love === 0 && $target_man->women_id_3 === $women->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
@@ -361,11 +358,11 @@ class EntranceController extends Controller
             if (!$women->love) {
                 $target_man = Men::find($women->men_id_2);
                 if ($target_man->love === 0 && $target_man->women_id_2 === $women->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
@@ -378,11 +375,11 @@ class EntranceController extends Controller
             if (!$men->love) {
                 $target_woman = Women::find($men->women_id_2);
                 if ($target_woman->love === 0 && $target_woman->women_id_3 === $men->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $men->name,
-                        'women_name' => $target_woman->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->women_name = $target_woman->name;
+                    $love->men_name = $men->name;
+                    $love->save();
                     $target_woman->love = true;
                     $target_woman->save();
                     $men->love = true;
@@ -395,11 +392,11 @@ class EntranceController extends Controller
             if (!$women->love) {
                 $target_man = Men::find($women->men_id_2);
                 if ($target_man->love === 0 && $target_man->women_id_3 === $women->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
@@ -411,11 +408,11 @@ class EntranceController extends Controller
             if (!$women->love) {
                 $target_man = Men::find($women->men_id_3);
                 if ($target_man->love === 0 && $target_man->women_id_3 === $women->id) {
-                    Love::insert([
-                        'count' => 1,
-                        'men_name' => $target_man->name,
-                        'women_name' => $women->name,
-                    ]);
+                    $love = new Love();
+                    $love->count = 1;
+                    $love->men_name = $target_man->name;
+                    $love->women_name = $women->name;
+                    $love->save();
                     $target_man->love = true;
                     $target_man->save();
                     $women->love = true;
