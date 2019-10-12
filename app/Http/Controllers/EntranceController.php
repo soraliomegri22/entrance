@@ -263,13 +263,27 @@ class EntranceController extends Controller
         $men_lists = Men::where('id', '>', 1)->get();
         $women_list = Women::where('id', '>', 1)->get();
 
+        //todo 一時テスト
+        $love = new Love();
+        $love->count = 1;
+        $love->men_name = 'テスト男';
+        $love->women_name = 'テスト女';
+        $love->save();
+
         //1-1
         foreach ($women_list as $women) {
-            print('1-1 for確認');
+            print('1-1 for確認' . '<br/>');
             print($women->love);
             if (!$women->love) {
-                print('love確認');
+                print('love確認' . '<br/>');
                 $target_man = Men::find($women->men_id_1);
+                //todo 確認
+                print('=================');
+                print('PHP:' . phpversion() . '<br/>');
+//                print('$target_man:' . $target_man . '<br/>');
+                print($target_man->love . '= 0 &' . $target_man->women_id_1 . '='. $women->id .'<br/>');
+//                print('$target_man->women_id_:' . $target_man->women_id_1. '<br/>');
+//                print('$women->id:' . $women->id. '<br/>');
                 if ($target_man->love === 0 && $target_man->women_id_1 === $women->id) {
                     print('フィーリング確認');
                     $love = new Love();
