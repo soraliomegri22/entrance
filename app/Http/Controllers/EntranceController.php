@@ -318,7 +318,7 @@ class EntranceController extends Controller
         foreach ($men_lists as $men) {
             if (!$men->love) {
                 $target_woman = Women::find($men->women_id_1);
-                if ($target_woman->love == 0 && $target_woman->women_id_3 == $men->id) {
+                if ($target_woman->love == 0 && $target_woman->men_id_3 == $men->id) {
                     $love = new Love();
                     $love->count = 1;
                     $love->women_name = $target_woman->name;
@@ -369,7 +369,7 @@ class EntranceController extends Controller
         foreach ($men_lists as $men) {
             if (!$men->love) {
                 $target_woman = Women::find($men->women_id_2);
-                if ($target_woman->love == 0 && $target_woman->women_id_3 == $men->id) {
+                if ($target_woman->love == 0 && $target_woman->men_id_3 == $men->id) {
                     $love = new Love();
                     $love->count = 1;
                     $love->women_name = $target_woman->name;
